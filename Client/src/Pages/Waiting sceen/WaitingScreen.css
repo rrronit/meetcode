@@ -1,0 +1,263 @@
+
+
+.waitingScreen .ws-container {
+    --light: rgb(255, 255, 255);
+    --dark: rgb(50, 50, 50);
+    --br: 8px;
+
+  }
+  
+  .waitingScreen .ws-container:hover .waitingScreen .title {
+    opacity: 1;
+  }
+
+  
+  .waitingScreen .input {
+    background-color: transparent;
+    border: 2px solid white;
+    color: var(--light);
+    width:50vw;
+    padding:  .5rem;
+    border-radius: var(--br);
+    outline: none;
+    opacity: .8;
+    transition: .2s ease-in-out;
+  }
+  
+  .waitingScreen .input:focus {
+    opacity: 1;
+  }
+  
+
+  /* tooltip settings 👇 */
+
+.copy {
+    /* button */
+    --button-bg: #353434;
+    --button-hover-bg: #464646;
+    --button-text-color: #CCCCCC;
+    --button-hover-text-color: #8bb9fe;
+    --button-border-radius: 10px;
+    --button-diameter: 36px;
+    --button-outline-width: 1px;
+    --button-outline-color: rgb(141, 141, 141);
+    /* tooltip */
+    --tooltip-bg: #f4f3f3;
+    --toolptip-border-radius: 4px;
+    --tooltip-font-family: Menlo, Roboto Mono, monospace;
+    /* 👆 this field should not be empty */
+    --tooltip-font-size: 12px;
+    /* 👆 this field should not be empty */
+    --tootip-text-color: rgb(50, 50, 50);
+    --tooltip-padding-x: 7px;
+    --tooltip-padding-y: 7px;
+    --tooltip-offset: 8px;
+    /* --tooltip-transition-duration: 0.3s; */
+    /* 👆 if you need a transition, 
+    just remove the comment,
+    but I didn't like the transition :| */
+  }
+  
+  .copy {
+    box-sizing: border-box;
+    width: var(--button-diameter);
+    height: var(--button-diameter);
+    border-radius: var(--button-border-radius);
+    background-color: var(--button-bg);
+    color: var(--button-text-color);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+  }
+  
+  .tooltip {
+    position: absolute;
+    opacity: 0;
+    visibility: 0;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font: var(--tooltip-font-size) var(--tooltip-font-family);
+    color: var(--tootip-text-color);
+    background: var(--tooltip-bg);
+    padding: var(--tooltip-padding-y) var(--tooltip-padding-x);
+    border-radius: var(--toolptip-border-radius);
+    pointer-events: none;
+    transition: all var(--tooltip-transition-duration) cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .tooltip::before {
+    content: attr(data-text-initial);
+  }
+  
+  .tooltip::after {
+    content: "";
+    position: absolute;
+    bottom: calc(var(--tooltip-padding-y) / 2 * -1);
+    width: var(--tooltip-padding-y);
+    height: var(--tooltip-padding-y);
+    background: inherit;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    z-index: -999;
+    pointer-events: none;
+  }
+  
+  .copy svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .checkmark {
+    display: none;
+  }
+  
+  /* actions */
+  
+  .copy:hover .tooltip,
+  .copy:focus:not(:focus-visible) .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: calc((100% + var(--tooltip-offset)) * -1);
+  }
+  
+  .copy:focus:not(:focus-visible) .tooltip::before {
+    content: attr(data-text-end);
+  }
+  
+  .copy:focus:not(:focus-visible) .clipboard {
+    display: none;
+  }
+  
+  .copy:focus:not(:focus-visible) .checkmark {
+    display: block;
+  }
+  
+  .copy:hover,
+  .copy:focus {
+    background-color: var(--button-hover-bg);
+  }
+  
+  .copy:active {
+    outline: var(--button-outline-width) solid var(--button-outline-color);
+  }
+  
+  .copy:hover svg {
+    color: var(--button-hover-text-color);
+  }
+
+
+
+.waitingScreen .btn {
+    transform: scale(.72);
+    --btn-color:#2761c3;;
+    position: relative;
+    padding: 16px 32px;
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1;
+    color: white;
+    background: none;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    cursor: pointer;
+    filter: drop-shadow(0 2px 8px rgba(39, 94, 254, .32));
+    transition: .3s cubic-bezier(.215, .61,  .355, 1);
+  }
+  
+  .waitingScreen .btn::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: var(--btn-color);
+    border-radius: 24px;
+    transition: .3s cubic-bezier( .215, .61, .355, 1);
+  }
+  
+  .waitingScreen .btn span,
+          .waitingScreen .btn span span {
+    display: inline-flex;
+    vertical-align: middle;
+    transition: .3s cubic-bezier(.215, .61,  .355, 1);
+  }
+  
+  .waitingScreen .btn span {
+    transition-delay: .05s;
+  }
+  
+  .waitingScreen .btn span:first-child {
+    padding-right: 7px;
+  }
+  
+  .waitingScreen .btn span span {
+    margin-left: 8px;
+    transition-delay: .1s;
+  }
+  
+  .waitingScreen .btn ul {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    transform: translateY(-50%);
+  }
+  
+  .waitingScreen .btn ul li {
+    flex: 1;
+  }
+  
+  .waitingScreen .btn ul li a {
+    display: inline-flex;
+    vertical-align: middle;
+    transform: translateY(55px);
+    transition:  .3s cubic-bezier( .215,  .61,  .355, 1);
+  }
+  
+  .waitingScreen .btn ul li a:hover {
+    opacity:  .5;
+  }
+  
+  .waitingScreen .btn:hover::before {
+    transform: scale( .0);
+    
+  }
+  
+  .waitingScreen .btn:hover span,
+          .waitingScreen .btn:hover span span {
+    transform: translateY(-55px);
+  }
+  
+  .waitingScreen .btn:hover ul li a {
+    transform: translateY(0);
+  }
+
+  .waitingScreen .btn:hover{
+    border: 2px solid white;
+    border-radius: 30px;
+  }
+  
+  .waitingScreen .btn:hover ul li:nth-child(1) a {
+    transition-delay: .15s;
+  }
+  
+  .waitingScreen .btn:hover ul li:nth-child(2) a {
+    transition-delay:  .2s;
+  }
+  
+  .waitingScreen .btn:hover ul li:nth-child(3) a {
+    transition-delay: .25s;
+  }

@@ -1,0 +1,56 @@
+.ace_mobile-button{
+  display: none;
+}
+
+
+.submit-section {
+  bottom: 10px;
+}
+.submitBtn {
+  width: 120px;
+  height: 40px;
+  border-radius: 30px;
+  border: none;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.13);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  background: rgb(44, 91, 201);
+}
+
+.submitBtn:hover .arrow {
+  animation: slide-in-left 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.submitBtn:active {
+  transform: scale(0.97);
+}
+
+::-webkit-scrollbar-track {
+  border: 1px solid #000;
+  padding: 2px 0;
+  background-color: #000000;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(61, 61, 61);
+}

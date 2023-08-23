@@ -1,0 +1,74 @@
+[
+  {
+    "num": 19,
+    "expected": true
+  },
+  {
+    "num": 2,
+    "expected": false
+  },
+  {
+    "num": 7,
+    "expected": true
+  },
+  {
+    "num": 139,
+    "expected": false
+  },
+  {
+    "num": 82,
+    "expected": true
+  },
+  {
+    "num": 100,
+    "expected": true
+  },
+  {
+    "num": 4,
+    "expected": false
+  },
+  {
+    "num": 44,
+    "expected": false
+  },
+  {
+    "num": 143,
+    "expected": false
+  },
+  {
+    "num": 1,
+    "expected": true
+  },
+  {
+    "num": 10,
+    "expected": true
+  },
+  {
+    "num": 13,
+    "expected": true
+  },
+  {
+    "num": 23,
+    "expected": false
+  },
+  {
+    "num": 97,
+    "expected": true
+  },
+  {
+    "num": 123,
+    "expected": false
+  },
+  {
+    "num": 130,
+    "expected": true
+  },
+  {
+    "num": 200,
+    "expected": false
+  },
+  {
+    "num": 999,
+    "expected": false
+  }
+]

@@ -1,0 +1,25 @@
+.card {
+    box-sizing: border-box;
+    padding: 10px 20px;
+    color: white;
+    background: transparent;
+ 
+    border-radius: 17px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s;
+   
+  
+    font-weight: bolder;
+    border: 1px solid black;
+    
+  }
+  
+  .card:hover {
+    border: 1px solid white;
+    transform: scale(1.10);
+    
+  }
+  .card:active {
+    transform: scale(0.95) rotateZ(4.7deg);
+  }

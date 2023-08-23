@@ -1,0 +1,71 @@
+[
+  {
+    "s": "ab-cd",
+    "expected": "dc-ba"
+  },
+  {
+    "s": "a-bC-dEf-ghIj",
+    "expected": "j-Ih-gfE-dCba"
+  },
+
+  {
+    "s": "a.b,c/d:e<f>g",
+    "expected": "g.f,e/d:c<b>a"
+  },
+  {
+    "s": "abcd",
+    "expected": "dcba"
+  },
+  {
+    "s": "race a car",
+    "expected": "raca e car"
+  },
+  {
+    "s": "1234",
+    "expected": "1234"
+  },
+  {
+    "s": "AaBbCcDd",
+    "expected": "dDcCbBaA"
+  },
+  {
+    "s": "",
+    "expected": ""
+  },
+  {
+    "s": "a",
+    "expected": "a"
+  },
+  {
+    "s": "abcd-1234-efgh",
+    "expected": "hgfe-1234-dcba"
+  },
+  {
+    "s": "a-b-c-d",
+    "expected": "d-c-b-a"
+  },
+  {
+    "s": "1234-5678",
+    "expected": "1234-5678"
+  },
+  {
+    "s": "Aa!Bb@Cc#Dd$",
+    "expected": "dD!cC@bB#aA$"
+  },
+  {
+    "s": "r$@ev!e-rs^e",
+    "expected": "e$@sr!e-ve^r"
+  },
+  {
+    "s": "!@#$%^&*()",
+    "expected": "!@#$%^&*()"
+  },
+  {
+    "s": "ab-cd-ef-gh",
+    "expected": "hg-fe-dc-ba"
+  },
+  {
+    "s": "a!b@c#d$e%f^",
+    "expected": "f!e@d#c$b%a^"
+  }
+]

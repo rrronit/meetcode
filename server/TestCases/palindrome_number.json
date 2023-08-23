@@ -1,0 +1,122 @@
+[
+  {
+    "num": 121,
+    "expected": true
+  },
+  {
+    "num": 12321,
+    "expected": true
+  },
+  {
+    "num": 12345,
+    "expected": false
+  },
+  {
+    "num": 0,
+    "expected": true
+  },
+  {
+    "num": -121,
+    "expected": false
+  },
+  {
+    "num": 22,
+    "expected": true
+  },
+  {
+    "num": 555,
+    "expected": true
+  },
+  {
+    "num": 123456,
+    "expected": false
+  },
+  {
+    "num": 7656765,
+    "expected": false
+  },
+  {
+    "num": 12344321,
+    "expected": true
+  },
+  {
+    "num": 123454321,
+    "expected": true
+  },
+  {
+    "num": 98765432123456789,
+    "expected": true
+  },
+  {
+    "num": 999,
+    "expected": true
+  },
+  {
+    "num": 1001,
+    "expected": true
+  },
+  {
+    "num": 78987,
+    "expected": true
+  },
+  {
+    "num": 12345654321,
+    "expected": true
+  },
+  {
+    "num": 99999999,
+    "expected": true
+  },
+  {
+    "num": 9876789,
+    "expected": true
+  },
+  {
+    "num": 199999991,
+    "expected": true
+  },
+  {
+    "num": 111000111,
+    "expected": true
+  },
+  {
+    "num": 125212,
+    "expected": false
+  },
+  {
+    "num": 123211,
+    "expected": false
+  },
+  {
+    "num": 121222121,
+    "expected": true
+  },
+  {
+    "num": 455445,
+    "expected": false
+  },
+  {
+    "num": 10101010,
+    "expected": false
+  },
+  {
+    "num": 123456787654321,
+    "expected": true
+  },
+  {
+    "num": 234554321,
+    "expected": false
+  },
+  {
+    "num": 111222333444333222111,
+    "expected": true
+  },
+  {
+    "num": 444222666,
+    "expected": false
+  },
+  {
+    "num": 2147483647,
+    "expected": false
+  }
+]

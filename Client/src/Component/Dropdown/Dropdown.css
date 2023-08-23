@@ -1,0 +1,34 @@
+/* LanguageDropdown.css */
+.dropdown-container {
+    position: relative;
+    width: 200px;
+  }
+  
+  .dropdown {
+    width: 100%;
+
+
+    color: #fff; /* Text color */
+    
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .selected-option {
+    padding: 10px;
+  }
+  
+  .options {
+    max-height: 150px; /* Set the maximum height to enable scrolling */
+    overflow-y: auto; /* Enable scrolling */
+  }
+  
+  .option {
+    padding: 5px;
+  }
+  
+  /* Hover effect on dropdown options */
+  .option:hover {
+    background-color: #555; /* Dark hover background color */
+  }
+  
