@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Homepage from "./Pages/Homepage/Homepage";
 import Login from "./Pages/Login/Login";
 import Signup from "./Pages/Signup/Signup";
-import Verification from "./Pages/OTPverification/verification";
+import Verification from "./Pages/OTPverification/Verification";
 import WaitingScreen from "./Pages/Waiting sceen/WaitingScreen";
 import ProblemScreen from "./Pages/ProblemScreen/ProblemScreen";
 

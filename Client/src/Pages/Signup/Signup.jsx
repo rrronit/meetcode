@@ -35,7 +35,8 @@ const Signup = () => {
           Navigate("/signup/verify", { state: { email: values.email } });
         })
         .catch((err) => {
-			console.log(err)
+		      toast("Failed to Register")
+
           
 		
         });

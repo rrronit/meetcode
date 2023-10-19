@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import logo from "../../Assets/logo.png";
+import logo from "../../assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import axios from "axios";
@@ -18,20 +18,27 @@ const Navbar = ({ show, user }) => {
       .then((res) =>  window.location.reload())
       .catch((err) => console.log(err));
   };
+  const handleLogout=async()=>{
+    await axios
+    .get("http://localhost:4000/user/logout",{withCredentials:true})
+    .then((res) =>  window.location.reload())
+    .catch((err) => console.log(err));
+};
+
   return (
     <div>
       <div className="navbar-container flex justify-between items-center mx-5 md:mx-10 mt-3">
         <div className="logo ">
-          <Link to={`..`}>
+          <a href={`..`}>
             <img className=" h-16 md:h-24 lg:h-24" src={logo} alt="logo" />
-          </Link>
+          </a>
         </div>
         <div className="menu-container ">
           {user ? (
             <ul className="flex gap-4">
-              <Link to={`${user.Name}`}>
+              <button onClick={handleLogout}>
                 <li className="card">{user.Name}</li>
-              </Link>
+              </button>
             </ul>
           ) : show ? (
             screenWidth > 550 ? (

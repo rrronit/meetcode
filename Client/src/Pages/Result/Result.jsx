@@ -41,7 +41,7 @@ const Result = () => {
             <p className=" text-2xl lg:text-5xl w-80 h-16  relative top-10">
               {User ? User.Name : ""}
             </p>
-            <p className=" text-xl lg:text-4xl w-80 h-16  relative top-16"> {User?.score ? "Your Score: "+User.score : ""}</p>
+            <p className=" text-xl lg:text-4xl w-80 h-16  relative top-16"> {User?.score ? "Your Score: "+User.score : "Your Score: 0"}</p>
          
 
             {opponent.score !== undefined && User.score !== undefined && User.score>opponent.score ? (
@@ -83,7 +83,7 @@ const Result = () => {
           </div>
           </div>
           <div className="flex justify-center items-center w-full">
-          <Link to={"/"} className=" bg-blue-500 text-white text-center py-3 px-6 rounded-md shadow-md font-bold hover:bg-blue-700 transition duration-300 w-5/12 lg:w-3/12">Home</Link>
+          <a href={"/"} className=" bg-blue-500 text-white text-center py-3 px-6 rounded-md shadow-md font-bold hover:bg-blue-700 transition duration-300 w-5/12 lg:w-3/12">Home</a>
           </div>
       </div>
     </div>

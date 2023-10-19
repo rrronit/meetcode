@@ -3,7 +3,7 @@ import Navbar from "../../Component/Navbar/Navbar";
 
 import Example from "../../Component/Example/Example";
 import Dropdown from "../../Component/Dropdown/Dropdown.jsx";
-import "./problemscreen.css";
+import "./ProblemScreen.css";
 import AceEditor from "react-ace";
 
 import "ace-builds/src-noconflict/mode-python";
@@ -159,7 +159,7 @@ const ProblemScreen = () => {
           </div>
           <div className="submit-section absolute  md:ml-8  bottom-0 flex w-11/12 items-center justify-between">
             <div className=" flex gap-6">
-              <Timer User={User} Opponent={Opponent} />
+              <Timer User={User} Opponent={Opponent} Score={score} />
               <button
                 className="bg-red-700 font-semibold h-10 w-28 rounded-lg "
                 onClick={() => setShowLog(!showLog)}

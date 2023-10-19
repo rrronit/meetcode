@@ -18,7 +18,7 @@ const db = require("./config/db");
 db();
 const bodyParser = require("body-parser");
 const cors = require("cors");
-
+  
 const userRoute = require("./Routes/UserRoutes");
 const codeRoute = require("./Routes/EditorRoutes");
 const { getRandomProblem } = require("./Controller/EditorController");
@@ -29,6 +29,7 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
 app.use("/user", userRoute);
 app.use("/problem", codeRoute);
 
@@ -79,10 +80,9 @@ io.on("connection", (socket) => {
       const players = PlayersScore.get(data.roomID);
       players.push(data);
       PlayersScore.set(data.roomID, players);
-      console.log(data);
       setTimeout(() => {
         io.to(data.roomID).emit("Score", players);
-      }, 1000);
+      }, 2000);
     }
   });
 

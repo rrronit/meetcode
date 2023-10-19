@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./dropdown.css";
+import "./Dropdown.css";
 
 const Dropdown = ({ selectedLanguage, setSelectedLanguage }) => {
   const languages = [

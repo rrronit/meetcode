@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import socket from "../Component/Socket";
 
-const Timer = ({User,Opponent}) => {
+const Timer = ({User,Opponent,Score}) => {
   const Navigate = useNavigate();
   const [countdown, setCountdown] = useState(600);
   useEffect(() => {
@@ -10,7 +10,7 @@ const Timer = ({User,Opponent}) => {
       if (countdown > 0) {
         setCountdown((prevCountdown) => prevCountdown - 1);
       } else {
-        socket.emit("submit", { ...User, score });
+        socket.emit("submit", { ...User, score:0 });
 
         Navigate(`/${User.roomID}/result`, {
           state: { User: { ...User, score:0 }, Opponent },

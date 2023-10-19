@@ -30,22 +30,22 @@ exports.submitCode = async_handler(async (req, res, next) => {
       extension = "cpp";
       break;
   }
-
   const filePath = `./Container/Solution.${extension}`;
   fs.writeFileSync(filePath, code);
 
   fs.copyFile(
-    `./testcases/${question}.json`,
-    `./container/${question}.json`,
+    `./TestCases/${question.toLowerCase()}.json`,
+    `./Container/${question.toLowerCase()}.json`,
     (err) => {
       if (err) {
         console.log("err=>" + err);
       }
     }
   );
+  
   fs.copyFile(
-    `./programs/run${language}/${question}.${extension}`,
-    `./container/test.${extension}`,
+    `./Programs/run${language.charAt(0).toUpperCase()+language.slice(1)}/${question}.${extension}`,
+    `./Container/test.${extension}`,
     (err) => {
       if (err) {
         console.log("err=>" + err);
@@ -55,12 +55,12 @@ exports.submitCode = async_handler(async (req, res, next) => {
   try {
     const { stdout, stderr } = await executeInDocker(filePath, language);
 
-    fs.unlink(`./container/${question}.json`, (err) => {
+    fs.unlink(`./Container/${question}.json`, (err) => {
       if (err) {
         console.log(err);
       }
     });
-    fs.unlink(`./container/test.${extension}`, (err) => {
+    fs.unlink(`./Container/test.${extension}`, (err) => {
       if (err) {
         console.log(err);
       }
@@ -140,8 +140,9 @@ const executeInDocker = async (filePath, language) => {
 
   const { stdout, stderr } = await execPromisified(
     `docker run --rm  -v .:/meetcode/ ${imageName}`,
-    { cwd: "container" }
+    { cwd: "Container" }
   );
+  
 
   return { stdout, stderr };
 };
@@ -163,15 +164,16 @@ exports.getProblem=async_handler(async(req,res,next)=>{
 
   const problem=await Problem.findOne({problemId})
   if (!problem){
-    return next(new ErrorHandler("Invalid Question",400))
+    return next(new ErrorHandler("Invalid Question",401))
   }
   res.status(201).json({status:true,problem})
 })
 
 
+
 const handleImage=()=>{
   
-  exec("docker build -t python-runner ./docker/python",(err)=>{
+  exec("docker build -t python-runner ./Docker/python",(err)=>{
     if (err){
       console.log(err)
     }

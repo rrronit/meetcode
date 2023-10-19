@@ -6,6 +6,7 @@ import * as Yup from "yup"
 import {useFormik} from "formik"
 import axios from "axios";
 import PasswordChecker from "../../Component/PasswordChecker/PasswordChecker";
+import toast from 'react-hot-toast';
 const Login = () => {
   const Navigate = useNavigate();
 const location=useLocation()
@@ -25,10 +26,9 @@ const from=location?.state?.from
     },
     validationSchema: loginSchema,
     onSubmit: async (values) => {
-      
       await axios({
         method: "post",
-        url: `${import.meta.env.VITE_BASEURL}/user/login`,
+        url:`http://localhost:4000/user/login`,
         data: { ...values },
         withCredentials: true,
       })
@@ -43,7 +43,7 @@ const from=location?.state?.from
          
         })
         .catch((err) => {
-          console.log(err);
+          toast("Failed to login")
         });
     },
   });
@@ -58,7 +58,9 @@ const from=location?.state?.from
       }
     })
       
-      .catch((err) => console.log(err));
+      .catch((err) => 
+      toast("Failed to login")
+      );
   }
 
   return (
@@ -69,8 +71,8 @@ const from=location?.state?.from
           <p className="title">Login</p>
           <form className="form" onClick={handleSubmit}>
             <div className="input-group">
-              <label htmlFor="username">Username</label>
-              <input type="email" name="email" onChange={handleChange} value={values.email}  placeholder="" />
+              <label htmlFor="username">Email</label>
+              <input type="email" name="email" onChange={handleChange} value={values.email}  placeholder="john@gmail.com" />
             </div>
             <div className="input-group relative ">
             <div className="flex">
@@ -81,7 +83,7 @@ const from=location?.state?.from
                 type="password"
                 name="password"
        
-                placeholder=""
+                placeholder="********"
                 onChange={handleChange}
                 value={values.password}
               />

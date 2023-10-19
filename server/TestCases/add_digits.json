@@ -17,7 +17,7 @@
   },
   {
     "num": 98765,
-    "expected": 9
+    "expected": 8
   },
   {
     "num": 123,
@@ -52,24 +52,12 @@
     "expected": 9
   },
   {
-    "num": 987654321,
-    "expected": 9
-  },
-  {
-    "num": 12345,
-    "expected": 6
-  },
-  {
-    "num": 87654321,
-    "expected": 9
-  },
-  {
     "num": 543210987,
-    "expected": 9
+    "expected": 3
   },
   {
     "num": 777777,
-    "expected": 9
+    "expected": 6
   },
   {
     "num": 1234567890,
@@ -77,7 +65,7 @@
   },
   {
     "num": 11111111,
-    "expected": 9
+    "expected": 8
   }
 ]
 

@@ -13,12 +13,11 @@ exports.registerUser = asyncHandler(async (req, res, next) => {
 
   const { username, email, password } = req.body;
 
-  let user = await User.findOne({ Email: email.toLowerCase() });
+  let user = await User.findOne({ Email: email.toLowerCase()});
 
   if (user !== null) {
     return next(new ErrorHandler("User already Exist", 400));
   }
-
   hashedPassword = await bcrypt.hash(password, 10);
 
   user = await User.create({
@@ -71,7 +70,7 @@ exports.sendOTP = asyncHandler(async (req, res, next) => {
   let user = await User.findOne({ Email: Email.toLowerCase() });
 
   if (!user) {
-    return next(new ErrorHandler("User not found", 500));
+    return next(new ErrorHandler("User not found", 400));
   }
 
   user.OTPVerification = OTP;
@@ -146,13 +145,13 @@ exports.verifyUser = asyncHandler(async (req, res, next) => {
 
 exports.forgetPass=asyncHandler(async(req,res,next)=>{
   const {email} = req.body
-  console.log(email)
   res.status(201).json({mes:"done"})
-  
 })
 
 
 exports.handleGuest=asyncHandler(async(req,res,next)=>{
+
+
   const user=await User.create({
     Name: "Guest",
     Email: uuid()+"@guest.com",
