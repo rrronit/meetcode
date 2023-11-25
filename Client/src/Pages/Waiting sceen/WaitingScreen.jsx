@@ -27,7 +27,7 @@ const WaitingScreen = () => {
     }
     axios({
       method: "get",
-      url: "http://localhost:4000/user/verifyuser",
+      url: `${import.meta.env.VITE_BASEURL}/user/verifyuser`,
       withCredentials: true,
     })
       .then((res) => {

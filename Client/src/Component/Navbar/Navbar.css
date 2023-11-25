@@ -1,8 +1,9 @@
 .card {
     box-sizing: border-box;
-    padding: 10px 20px;
+    padding: 10px 15px;
     color: white;
     background: transparent;
+    
  
     border-radius: 17px;
     text-align: center;

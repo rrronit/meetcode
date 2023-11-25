@@ -28,7 +28,7 @@ const Forgetpass = () => {
 
   const handleGuest = async () => {
     await axios
-      .get("http://localhost:4000/user/continueasguest", {
+      .get(`${import.meta.env.VITE_BASEURL}/user/continueasguest`, {
         withCredentials: true,
       })
       .then((res) => {

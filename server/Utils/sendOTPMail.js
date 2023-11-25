@@ -41,7 +41,7 @@ const htmlData=`<!DOCTYPE html>
 
     /* .c-email__header */
     .c-email__header {
-      background-color: #0fd59f;
+      background-color: blue;
       width: 100%;
       height: 60px;
     }

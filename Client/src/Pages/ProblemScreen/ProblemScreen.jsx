@@ -54,7 +54,7 @@ const ProblemScreen = () => {
     
       await axios({
         method:"post",
-        url:"http://localhost:4000/problem/getId",
+        url:`${import.meta.env.VITE_BASEURL}/problem/getId`,
       data:{problemId:window.location.pathname.split("/")[2]}
       })
         .then((res) => {

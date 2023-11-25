@@ -61,7 +61,7 @@ duration:0.5
   });
 
   return (
-    <div className=" homepage-container h-screen w-screen overflow-hidden absolute -z-10">
+    <div className="homepage-container h-screen w-screen overflow-hidden absolute -z-10">
       <div>
         <Navbar show={true} user={User} />
       </div>

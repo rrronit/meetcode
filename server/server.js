@@ -11,7 +11,7 @@ const socketIO = require("socket.io");
 const Error = require("./Middleware/Error");
 
 const io = new socketIO.Server(server, {
-  cors: { origin: "http://localhost:5173", credentials: true },
+  cors: { origin: "https://meetc0de.vercel.app", credentials: true },
 });
 
 const db = require("./config/db");
@@ -24,7 +24,7 @@ const codeRoute = require("./Routes/EditorRoutes");
 const { getRandomProblem } = require("./Controller/EditorController");
 
 app.use(Error);
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({ origin: "https://meetc0de.vercel.app", credentials: true }));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());

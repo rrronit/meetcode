@@ -1,17 +1,13 @@
 class Solution:
-    def reverse_only_letters(self,s): 
-        s = list(s)
-        start = 0
-        end = len(s) - 1
+    def fibonacci_number(self,n): 
+        if n <= 0:
+            return 0
+        elif n == 1:
+            return 1
     
-        while start < end:
-            if s[start].isalpha() and s[end].isalpha():
-                s[start], s[end] = s[end], s[start]
-                start += 1
-                end -= 1
-            elif not s[start].isalpha():
-                start += 1
-            elif not s[end].isalpha():
-                end -= 1
-    
-        return ''.join(s)
+        prev, current = 0, 1
+        for i in range(2, n + 1):
+            next_fib = prev + current
+            prev, current = current, next_fib
+
+        return current 

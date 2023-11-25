@@ -28,7 +28,7 @@ const from=location?.state?.from
     onSubmit: async (values) => {
       await axios({
         method: "post",
-        url:`http://localhost:4000/user/login`,
+        url:`${import.meta.env.VITE_BASEURL}/user/login/`,
         data: { ...values },
         withCredentials: true,
       })
@@ -48,7 +48,7 @@ const from=location?.state?.from
     },
   });
   const handleGuest=async()=>{
-    await axios.get("http://localhost:4000/user/continueasguest",{withCredentials:true})
+    await axios.get(`${import.meta.env.VITE_BASEURL}/user/continueasguest`,{withCredentials:true})
       .then((res) =>  {
       if (from=="friend"){
         Navigate(to,{state:{from:"friend"}})
