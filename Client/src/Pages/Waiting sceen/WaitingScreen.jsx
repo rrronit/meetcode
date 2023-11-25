@@ -27,7 +27,7 @@ const WaitingScreen = () => {
     }
     axios({
       method: "get",
-      url: `${import.meta.env.VITE_BASEURL}/user/verifyuser`,
+      url: `https://meetcode.ronit.live/user/verifyuser`,
       withCredentials: true,
     })
       .then((res) => {

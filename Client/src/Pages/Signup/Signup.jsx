@@ -27,7 +27,7 @@ const Signup = () => {
 		console.log(values)
       await axios({
         method: "post",
-        url:  `${import.meta.env.VITE_BASEURL}/user/signup`,
+        url:  `https://meetcode.ronit.live/user/signup`,
        data:{...values},
         withCredentials: true,
       })

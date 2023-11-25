@@ -18,7 +18,7 @@ const AddProblemForm = () => {
       examples
     };
    
-    await axios.post(`${import.meta.env.VITE_BASEURL}/problem/add`,newProblem,{withCredentials:true}).then(()=>location.reload());
+    await axios.post(`https://meetcode.ronit.live/problem/add`,newProblem,{withCredentials:true}).then(()=>location.reload());
 
 
     setProblemId('');

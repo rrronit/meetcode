@@ -1,7 +1,7 @@
 import socketIO from "socket.io-client";
 
 
-const socket= socketIO(`${import.meta.env.VITE_BASEURL}`, {
+const socket= socketIO(`https://meetcode.ronit.live`, {
     transport: ["websocket"],
   });      
 

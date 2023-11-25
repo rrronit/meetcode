@@ -13,7 +13,7 @@ const Forgetpass = () => {
     onSubmit: async (values) => {
       await axios({
         method: "post",
-        url: `${import.meta.env.VITE_BASEURL}/user/forgetpass`,
+        url: `https://meetcode.ronit.live/user/forgetpass`,
         data: { ...values },
         withCredentials: true,
       })
@@ -28,7 +28,7 @@ const Forgetpass = () => {
 
   const handleGuest = async () => {
     await axios
-      .get(`${import.meta.env.VITE_BASEURL}/user/continueasguest`, {
+      .get(`https://meetcode.ronit.live/user/continueasguest`, {
         withCredentials: true,
       })
       .then((res) => {

@@ -54,7 +54,7 @@ const ProblemScreen = () => {
     
       await axios({
         method:"post",
-        url:`${import.meta.env.VITE_BASEURL}/problem/getId`,
+        url:`https://meetcode.ronit.live/problem/getId`,
       data:{problemId:window.location.pathname.split("/")[2]}
       })
         .then((res) => {
@@ -84,7 +84,7 @@ const ProblemScreen = () => {
     setShowLog(true);
     setsubmitLoading(true);
     await axios
-      .post(`${import.meta.env.VITE_BASEURL}/problem/submit`, {
+      .post(`https://meetcode.ronit.live/problem/submit`, {
         code,
         language: selectedLanguage,
         question: Problem.problemId,

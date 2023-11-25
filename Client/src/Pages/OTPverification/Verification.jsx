@@ -28,7 +28,7 @@ const Verification = () => {
  
     await axios({
       method: "post",
-      url: `${import.meta.env.VITE_BASEURL}/user/verify`,
+      url: `https://meetcode.ronit.live/user/verify`,
       data:{email,OTP} ,
       withCredentials: true,
     })
@@ -51,7 +51,7 @@ const Verification = () => {
   const handleOTPagain=async()=>{
     await axios({
       method:"post",
-      url: `${import.meta.env.VITE_BASEURL}/user/OTPagain`,
+      url: `https://meetcode.ronit.live/user/OTPagain`,
       data:{email},
     }).then(res=>console.log(res)).catch(err=>console.log(err))
 
