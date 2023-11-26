@@ -14,9 +14,12 @@ const Navbar = ({ show, user }) => {
   }, []);
   const handleClick = async () => {
     await axios
-      .get(`https://meetcode.ronit.live/user/continueasguest`,{withCredentials:true})
-      .then((res) =>  window.location.reload())
-      .catch((err) => console.log(err));
+      .get("https://meetcode.ronit.live/user/continueasguest",{withCredentials:true})
+      .then((res) =>  {
+        window.location.reload()})
+      .catch((err) => {
+        console.log(err)
+      });
   };
   const handleLogout=async()=>{
     await axios
