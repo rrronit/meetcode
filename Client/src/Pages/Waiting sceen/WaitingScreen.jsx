@@ -13,7 +13,7 @@ const WaitingScreen = () => {
   const makingFriend = location.state?.makingFriend;
   const Navigate = useNavigate();
 
-
+  console.log(window.location.hash)
  
 
 
@@ -78,7 +78,7 @@ const WaitingScreen = () => {
         timer = setInterval(async () => {
           document.querySelector(".timer").innerText = value;
           if (value === 0) {
-            Navigate(`${location.hash}/${problem}`, { state: { User,Opponent:opponent}});
+            Navigate(`${problem}`, { state: { User,Opponent:opponent}});
             document.querySelector(".timer").innerText = "";
             clearInterval(timer);
             
