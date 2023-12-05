@@ -22,7 +22,7 @@ const WaitingScreen = () => {
 
   useEffect(() => {
  
-    if (!validate(window.location.pathname.replace("/",""))){
+    if (!validate(window.location.pathname.replace(/[\/#]/g,""))){
       Navigate("/")
     }
     axios({
