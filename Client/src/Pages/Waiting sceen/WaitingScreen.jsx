@@ -13,7 +13,6 @@ const WaitingScreen = () => {
   const makingFriend = location.state?.makingFriend;
   const Navigate = useNavigate();
 
-  console.log(window.location.hash)
  
 
 
@@ -38,7 +37,7 @@ const WaitingScreen = () => {
       .catch((err) => {
         const id = window.location.hash;
 
-        Navigate("/login", { state: { roomID: id, from :"friend"} });
+        Navigate("/login", { state: { roomID: id, from } });
       });
   }, [from]);
  
@@ -50,6 +49,7 @@ const WaitingScreen = () => {
       if (from === "friend" || from === "joining") {
         socket.emit("friend:joinRoom", User);
         socket.on("playersInfo", (info) => {
+       
           const other =
             info.player1 === User.Name ? info.player2 : info.player1;
             

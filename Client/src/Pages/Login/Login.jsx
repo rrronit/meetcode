@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../../Component/Navbar/Navbar";
 import "./Login.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -8,6 +8,7 @@ import axios from "axios";
 import PasswordChecker from "../../Component/PasswordChecker/PasswordChecker";
 import toast from 'react-hot-toast';
 const Login = () => {
+  
   const Navigate = useNavigate();
 const location=useLocation()
 const to=location?.state?.roomID || "/"
@@ -18,7 +19,17 @@ const from=location?.state?.from
     email: Yup.string().email().required(),
     password: Yup.string().min(6).max(20).required(),
   });
-
+  useEffect(()=>{
+    axios({
+      method: "get",
+      url: `https://meetcode.ronit.live/user/verifyuser`,
+      withCredentials: true,
+    })
+      .then((res) => {
+        Navigate("/");
+      })
+      
+  })
   const { values, handleSubmit, handleChange, isLoading, errors } = useFormik({
     initialValues: {
       email: "",

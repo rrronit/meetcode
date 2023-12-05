@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../../Component/Navbar/Navbar";
 import "./Signup.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -16,6 +16,18 @@ const Signup = () => {
     password: Yup.string().min(6).max(20).required(),
   });
 
+
+  useEffect(()=>{
+    axios({
+      method: "get",
+      url: `https://meetcode.ronit.live/user/verifyuser`,
+      withCredentials: true,
+    })
+      .then((res) => {
+        Navigate("/");
+      })
+      
+  })
   const { values, handleSubmit, handleChange, isLoading,errors } = useFormik({
     initialValues: {
       username: "",

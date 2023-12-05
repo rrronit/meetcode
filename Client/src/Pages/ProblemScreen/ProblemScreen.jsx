@@ -44,8 +44,7 @@ const ProblemScreen = () => {
 
   const [Opponent, setOpponent] = useState(location.state?.Opponent)
   
-
-
+ 
 
 
   useEffect(() => {
@@ -55,7 +54,7 @@ const ProblemScreen = () => {
       await axios({
         method:"post",
         url:`https://meetcode.ronit.live/problem/getId`,
-      data:{problemId:window.location.hash.split("/")[3]}
+      data:{problemId:window.location.hash.split("/")[2]}
       })
         .then((res) => {
           setProblem(res.data.problem);
