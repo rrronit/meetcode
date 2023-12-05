@@ -22,7 +22,9 @@ const WaitingScreen = () => {
 
   useEffect(() => {
  
- 
+    if (!validate(window.location.hash.replace(/[\/#]/g,""))){
+      Navigate("/")
+    }
     axios({
       method: "get",
       url: `https://meetcode.ronit.live/user/verifyuser`,
@@ -30,13 +32,13 @@ const WaitingScreen = () => {
     })
       .then((res) => {
         const data = res.data.user;
-        data.roomID = window.location.pathname.replace("/", "");
+        data.roomID = window.location.hash.replace(/[\/#]/g, "");
         setUser(data);
       })
       .catch((err) => {
-        const id = window.location.pathname;
+        const id = window.location.hash;
 
-        Navigate("/login", { state: { roomID: id, from } });
+        Navigate("/login", { state: { roomID: id, from :"friend"} });
       });
   }, [from]);
  
@@ -76,7 +78,7 @@ const WaitingScreen = () => {
         timer = setInterval(async () => {
           document.querySelector(".timer").innerText = value;
           if (value === 0) {
-            Navigate(`${location.pathname}/${problem}`, { state: { User,Opponent:opponent}});
+            Navigate(`${location.hash}/${problem}`, { state: { User,Opponent:opponent}});
             document.querySelector(".timer").innerText = "";
             clearInterval(timer);
             

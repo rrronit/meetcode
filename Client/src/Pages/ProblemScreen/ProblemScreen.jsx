@@ -55,7 +55,7 @@ const ProblemScreen = () => {
       await axios({
         method:"post",
         url:`https://meetcode.ronit.live/problem/getId`,
-      data:{problemId:window.location.pathname.split("/")[2]}
+      data:{problemId:window.location.hash.split("/")[3]}
       })
         .then((res) => {
           setProblem(res.data.problem);
