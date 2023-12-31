@@ -5,7 +5,7 @@ import "./WaitingScreen.css";
 import axios from "axios";
 import ShareLink from "../../Component/ShareLInk/ShareLink";
 import socket from "../../Component/Component/Socket";
-import {validate} from "uuid"
+import { validate } from "uuid"
 
 const WaitingScreen = () => {
   const location = useLocation(); /*  */
@@ -13,15 +13,15 @@ const WaitingScreen = () => {
   const makingFriend = location.state?.makingFriend;
   const Navigate = useNavigate();
 
- 
+
 
 
   const [User, setUser] = useState(null);
   const [opponent, setOpponent] = useState(null);
 
   useEffect(() => {
- 
-    if (!validate(window.location.hash.replace(/[\/#]/g,""))){
+
+    if (!validate(window.location.hash.replace(/[\/#]/g, ""))) {
       Navigate("/")
     }
     axios({
@@ -40,21 +40,21 @@ const WaitingScreen = () => {
         Navigate("/login", { state: { roomID: id, from } });
       });
   }, [from]);
- 
-  
+
+
   useEffect(() => {
     if (User) {
-      
-      socket.on("connect", () => {});
+
+      socket.on("connect", () => { });
       if (from === "friend" || from === "joining") {
         socket.emit("friend:joinRoom", User);
         socket.on("playersInfo", (info) => {
-       
+
           const other =
             info.player1 === User.Name ? info.player2 : info.player1;
-            
-            setOpponent(other);
-          
+
+          setOpponent(other);
+
         });
       } else if (from === "random") {
         socket.emit("random:joinRoom", User);
@@ -70,7 +70,7 @@ const WaitingScreen = () => {
 
   useEffect(() => {
     let timer;
-    
+
     if (User) {
       socket.on("startGame", (problem) => {
         let value = 5;
@@ -78,17 +78,17 @@ const WaitingScreen = () => {
         timer = setInterval(async () => {
           document.querySelector(".timer").innerText = value;
           if (value === 0) {
-            Navigate(`${problem}`, { state: { User,Opponent:opponent}});
+            Navigate(`${problem}`, { state: { User, Opponent: opponent } });
             document.querySelector(".timer").innerText = "";
             clearInterval(timer);
-            
-                    }
+
+          }
           value--;
         }, 1000);
       })
     }
 
-    
+
   }, [opponent]);
 
   return (
@@ -97,26 +97,26 @@ const WaitingScreen = () => {
         <Navbar show={false} user={User} />
         <div className="playerInfo scale-50 md:scale-90 h-3/5 flex justify-center mt-8 text-white gap-5 md:gap-32">
           <div className="yourArea  p-8 bg-neutral-950 m-2">
-     
+
             <p className=" text-2xl lg:text-5xl w-80 h-16  relative top-10">
               {User ? User.Name : ""}
             </p>
-          
-         
 
-           
+
+
+
           </div>
 
           <p className="timer absolute text-8xl h-96 flex justify-center items-center ">
             {" "}
           </p>
-         
+
           <div className="opponentArea p-8 bg-neutral-950 m-2">
-       
+
             <p className=" text-2xl lg:text-5xl w-80  h-16  relative top-10">
               {opponent ? opponent : "Waiting for opponent..."}
             </p>
-           
+
           </div>
         </div>
         {from === "friend" && !makingFriend ? <ShareLink /> : null}

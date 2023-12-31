@@ -18,7 +18,7 @@ const db = require("./config/db");
 db();
 const bodyParser = require("body-parser");
 const cors = require("cors");
-  
+
 const userRoute = require("./Routes/UserRoutes");
 const codeRoute = require("./Routes/EditorRoutes");
 const { getRandomProblem } = require("./Controller/EditorController");
@@ -59,7 +59,6 @@ io.on("connection", (socket) => {
         roomParticipants.set(player.roomID, currentUsers);
 
         if (currentUsers.length === 2) {
-          setTimeout(async()=>{
           io.to(player.roomID).emit("playersInfo", {
             player1: currentUsers[0].Name,
             player2: currentUsers[1].Name,
@@ -67,8 +66,9 @@ io.on("connection", (socket) => {
 
           const problem = await getRandomProblem();
 
-          io.to(player.roomID).emit("startGame", problem);
-        },500)
+          setTimeout(async () => {
+            io.to(player.roomID).emit("startGame", problem);
+          }, 500)
         }
       }
     }
