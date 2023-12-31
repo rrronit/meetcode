@@ -85,13 +85,10 @@ const WaitingScreen = () => {
                     }
           value--;
         }, 1000);
-      });
-      
+      })
     }
 
-    return () => {
-      clearInterval(timer);
-    };
+    
   }, [opponent]);
 
   return (
