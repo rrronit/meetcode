@@ -74,18 +74,18 @@ duration:0.5
           <br /> Prove your coding prowess
         </p>
       </div>
-      <div className="btn-container mx-3 flex gap-8 justify-center items-center">
+      <div className="btn-container mx-3 flex gap-6 justify-center items-center">
         <Link
           to={uuid()}
           state={{ from: "friend", makingFriend: false }}
-          className="block bg-blue-500 text-white text-center py-3 px-6 rounded-md shadow-md hover:bg-blue-700 transition duration-300"
+          className="block bg-blue-500 text-white text-center py-4 px-6 rounded-md shadow-md hover:bg-blue-700 transition duration-300"
         >
           COMPETE WITH FRIEND
         </Link>
         <Link
           to={uuid()}
           state={{ from: "random" }}
-          className="block bg-blue-500 text-white text-center py-3 px-6 rounded-md shadow-md hover:bg-blue-700 transition duration-300"
+          className="block bg-blue-500 text-white text-center py-4 px-6 rounded-md shadow-md hover:bg-blue-700 transition duration-300"
         >
           COMPETE WITH RANDOM
         </Link>
