@@ -43,7 +43,6 @@ io.on("connection", (socket) => {
     if (!player?.roomID) {
       return;
     }
-
     if (!roomParticipants.has(player.roomID)) {
       socket.join(player.roomID);
       roomParticipants.set(player.roomID, [{ ...player, socketId: socket.id }]);
@@ -60,6 +59,7 @@ io.on("connection", (socket) => {
         roomParticipants.set(player.roomID, currentUsers);
 
         if (currentUsers.length === 2) {
+          setTimeout(async()=>{
           io.to(player.roomID).emit("playersInfo", {
             player1: currentUsers[0].Name,
             player2: currentUsers[1].Name,
@@ -68,6 +68,7 @@ io.on("connection", (socket) => {
           const problem = await getRandomProblem();
 
           io.to(player.roomID).emit("startGame", problem);
+        },500)
         }
       }
     }
