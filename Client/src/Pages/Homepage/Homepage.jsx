@@ -63,7 +63,7 @@ duration:0.5
   return (
     <div className="homepage-container h-screen w-screen overflow-hidden absolute -z-10">
       <div>
-        <Navbar show={true} user={User} />
+        <Navbar show={true} user={User} setUser={setUser} />
       </div>
       <div className=" flex flex-col justify-center items-center m-20 text-white p-4">
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-10 tracking-wide " onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>

@@ -4,29 +4,33 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import axios from "axios";
 
-const Navbar = ({ show, user }) => {
-  
+const Navbar = ({ show, user, setUser }) => {
+
   const [screenWidth, setScreenWidth] = useState(screen.width);
   useEffect(() => {
     window.addEventListener("resize", () => {
       setScreenWidth(screen.width);
     });
   }, []);
-  const handleClick = async () => {
-    await axios
-      .get("https://meetcode.ronit.live/user/continueasguest",{withCredentials:true})
-      .then((res) =>  {
-        window.location.reload()})
+  const handleClick = () => {
+    axios
+      .get("https://meetcode.ronit.live/user/continueasguest", { withCredentials: true })
+      .then((res) => {
+        window.location.reload()
+      })
       .catch((err) => {
         console.log(err)
       });
   };
-  const handleLogout=async()=>{
-    await axios
-    .get(`https://meetcode.ronit.live/user/logout`,{withCredentials:true})
-    .then((res) =>  window.location.reload())
-    .catch((err) => console.log(err));
-};
+  const handleLogout = () => {
+    axios
+      .get(`https://meetcode.ronit.live/user/logout`, { withCredentials: true })
+      .then((res) => {
+        setUser(null)
+        window.location.reload()
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div>
