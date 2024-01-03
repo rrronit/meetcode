@@ -3,16 +3,9 @@ import "./Dropdown.css";
 
 const Dropdown = ({ selectedLanguage, setSelectedLanguage }) => {
   const languages = [
-    "Java",
+    
     "Python",
-    "C++",
-    "C",
-    "JavaScript",
-    "Swift",
-    "Go",
-    "Typescript",
-    "Php",
-    "Rust",
+    "coming soon"
   ];
   const [showOptions, setShowOptions] = useState(false);
   const dropdownRef = useRef(null);
