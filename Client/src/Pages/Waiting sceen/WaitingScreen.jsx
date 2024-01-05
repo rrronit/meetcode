@@ -98,7 +98,7 @@ const WaitingScreen = () => {
         <div className="playerInfo scale-50 md:scale-90 h-3/5 flex justify-center mt-8 text-white gap-5 md:gap-32">
           <div className="yourArea  p-8 bg-neutral-950 m-2">
 
-            <p className=" text-2xl lg:text-5xl w-80 h-16  relative top-10">
+            <p className=" text-center text-2xl lg:text-5xl w-80 h-16  relative top-10">
               {User ? User.Name : "Loading..."}
             </p>
 
@@ -111,9 +111,9 @@ const WaitingScreen = () => {
             {" "}
           </p>
 
-          <div className="opponentArea p-8 bg-neutral-950 m-2">
+          <div className="opponentArea  p-8 bg-neutral-950 m-2">
 
-            <p className=" text-2xl lg:text-5xl w-80  h-16  relative top-10">
+            <p className=" text-center text-2xl lg:text-5xl w-80  h-16  relative top-10">
               {opponent ? opponent : "Waiting for opponent..."}
             </p>
 
