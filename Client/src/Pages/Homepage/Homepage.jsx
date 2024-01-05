@@ -10,7 +10,6 @@ const Homepage = () => {
   const [User, setUser] = useState(null);
   
   useEffect(() => {
-    console.log(location.state)
     axios({
       method: "get",
       url: `https://meetcode.ronit.live/user/verifyuser`,

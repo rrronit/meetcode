@@ -14,7 +14,7 @@ const Result = () => {
 
   useEffect(() => {
    
-    if (!User){
+    if (!User && !opponent.Name){
       Navigate("/")
     }
         

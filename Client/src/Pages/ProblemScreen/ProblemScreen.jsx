@@ -112,8 +112,8 @@ const ProblemScreen = () => {
     <div className="h-screen w-screen md:overflow-hidden bg-black absolute -z-10 text-white">
       <Navbar />
       <div className="h-screen md:flex relative ">
-        <div className="problemSection overflow-x-hidden rounded h-3/4 p-5 md:w-5/12 mt-3 ml-1 overflow-scroll">
-        <div className=" flex items-center justify-between  "> 
+        <div className="problemSection overflow-x-hidden rounded h-3/4 p-5 md:w-5/12 mt-3 ml-1  overflow-scroll  ">
+        <div className=" flex items-center justify-between sticky -top-6 bg-black -pt-7 "> 
         <p className=" font-bold my-3">{Problem.problemName}</p>
         <div className="flex ">
         <p>Points:</p>
@@ -143,7 +143,7 @@ const ProblemScreen = () => {
             selectedLanguage={selectedLanguage}
             setSelectedLanguage={setSelectedLanguage}
           />
-          <div className="text-container mt-10 absolute h-96 w-full">
+          <div className="text-container mt-10 absolute h-3/4 w-full">
             <AceEditor
               mode={selectedLanguage.toLowerCase()}
               theme="monokai"
@@ -151,13 +151,13 @@ const ProblemScreen = () => {
               onChange={setCode}
               fontSize={16}
               width="100%"
-              height="400px"
+              height="100%"
               className="custom-ace-editor"
               editorProps={{ $blockScrolling: true }}
             />
           </div>
-          <div className="submit-section absolute  md:ml-8  bottom-0 flex w-11/12 items-center justify-between">
-            <div className=" flex gap-6">
+          <div className="flex items-center justify-center"><div className="submit-section absolute    md:bottom-28 lg:bottom-5 flex w-11/12 items-center justify-between">
+            <div className=" flex gap-8">
               <Timer User={User} Opponent={Opponent} Score={score} />
               <button
                 className="bg-red-700 font-semibold h-10 w-28 rounded-lg "
@@ -169,10 +169,11 @@ const ProblemScreen = () => {
             <button
               disabled={InputData?.success || false}
               onClick={handleSubmit}
-              className="submitBtn flex gap-1"
+              className="submitBtn ml-3"
             >
               Submit
             </button>
+          </div>
           </div>
           <ConsoleLog Loading={submitLoading} show={showLog} data={InputData} />
         </div>

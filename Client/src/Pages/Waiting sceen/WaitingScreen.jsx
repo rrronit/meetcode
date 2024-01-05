@@ -99,7 +99,7 @@ const WaitingScreen = () => {
           <div className="yourArea  p-8 bg-neutral-950 m-2">
 
             <p className=" text-2xl lg:text-5xl w-80 h-16  relative top-10">
-              {User ? User.Name : ""}
+              {User ? User.Name : "Loading..."}
             </p>
 
 
