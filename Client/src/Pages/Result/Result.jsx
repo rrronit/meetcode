@@ -36,7 +36,7 @@ const Result = () => {
       <div className="h-screen w-screen   overflow-hidden bg-black absolute -z-10">
         <Navbar show={true} user={User} />
         <div className="playerInfo scale-50 md:scale-90 h-3/5 flex justify-center mt-8 text-white gap-5 md:gap-32">
-          <div className="yourArea  p-8 bg-neutral-950 m-2">
+          <div className="yourArea text-center  p-8 bg-neutral-950 m-2">
      
             <p className=" text-2xl lg:text-5xl w-80 h-16  relative top-10">
               {User ? User.Name : ""}
@@ -63,7 +63,7 @@ const Result = () => {
             ) : (
               ""
             )}
-          <div className="opponentArea p-8 bg-neutral-950 m-2">
+          <div className="opponentArea text-center p-8 bg-neutral-950 m-2">
        
             <p className=" text-2xl lg:text-5xl w-80  h-16  relative top-10">
               {opponent ? opponent.Name: "Waiting for opponent..."}
