@@ -21,9 +21,7 @@ const WaitingScreen = () => {
 
   useEffect(() => {
 
-    if (!validate(window.location.hash.replace(/[\/#]/g, ""))) {
-      Navigate("/")
-    }
+   
     axios({
       method: "get",
       url: `https://meetcode.ronit.live/user/verifyuser`,
