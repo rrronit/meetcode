@@ -3,7 +3,6 @@ const nodemailer=require("nodemailer")
 const sendOTPMail=async(Email,OTP)=>{
     const transporter=nodemailer.createTransport({
         service: "gmail",
-
         auth: {
             user: "test.mail240723@gmail.com",
             pass: "glzehocovyvofevf"

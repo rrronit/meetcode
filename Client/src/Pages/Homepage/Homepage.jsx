@@ -14,8 +14,11 @@ const Homepage = () => {
       method: "get",
       url: `https://meetcode.ronit.live/user/verifyuser`,
       withCredentials: true,
+      
     })
       .then((res) => {
+
+
         setUser(res.data.user);
       })
       .catch((err) => {
